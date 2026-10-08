@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wemust-mcp"
+version = "0.1.0"
+description = "Read-only MCP server for the MUST WeMust student portal (unofficial, stdlib-only)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Knighty KAKA" }]
+keywords = ["mcp", "wemust", "must", "timetable", "student"]
+dependencies = []
+
+[project.scripts]
+wemust-mcp = "wemust.mcp_server:main"
+wemust = "wemust.cli:main"
+
+[tool.setuptools]
+packages = ["wemust"]

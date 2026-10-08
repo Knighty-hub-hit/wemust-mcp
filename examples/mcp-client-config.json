@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "wemust": {
+      "command": "python3",
+      "args": ["-m", "wemust.mcp_server"],
+      "cwd": "/absolute/path/to/wemust-mcp",
+      "env": {
+        "WEMUST_USERNAME": "your_student_id",
+        "WEMUST_KEYCHAIN_SERVICE": "wemust"
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Optional: run the Notion sync once a day via launchd (macOS).
+     Replace the placeholders, save to
+       ~/Library/LaunchAgents/com.example.wemust-sync.plist
+     then:  launchctl load ~/Library/LaunchAgents/com.example.wemust-sync.plist
+     This is only for the optional Notion sync; the MCP server does NOT need it. -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.example.wemust-sync</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string>
+    <string>-m</string>
+    <string>wemust.cli</string>
+    <string>sync</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/absolute/path/to/wemust-mcp</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>WEMUST_USERNAME</key>
+    <string>your_student_id</string>
+    <key>WEMUST_KEYCHAIN_SERVICE</key>
+    <string>wemust</string>
+    <key>WEMUST_NOTION_PAGE_ID</key>
+    <string>your_notion_page_id</string>
+  </dict>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key><integer>8</integer>
+    <key>Minute</key><integer>0</integer>
+  </dict>
+  <key>RunAtLoad</key>
+  <false/>
+  <key>StandardOutPath</key>
+  <string>/absolute/path/to/wemust-mcp/sync.log</string>
+  <key>StandardErrorPath</key>
+  <string>/absolute/path/to/wemust-mcp/sync.log</string>
+</dict>
+</plist>

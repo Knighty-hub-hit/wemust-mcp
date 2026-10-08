@@ -1,0 +1,30 @@
+# Secrets & local config
+.env
+*.env
+!examples/.env.example
+
+# Logs & runtime data
+*.log
+sync.log
+
+# Dumps / probes / scraped data
+dumps/
+*.dump
+*.har
+probe_*.json
+*.tar
+*.tar.gz
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

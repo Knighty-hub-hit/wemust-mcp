@@ -1,0 +1,23 @@
+{
+  "name": "dsh-wemust-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DeepSeek Harness bundle: read-only WeMust portal and Moodle tools (timetable, notices, messages, calendar, courses, assignments).",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

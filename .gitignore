@@ -1,4 +1,10 @@
 # Secrets & local config
+.local/
+# Local diagnostics; not part of the distributable integration
+/windows/inspect-notices.py
+/windows/probe-moodle.py
+/windows/verify-moodle.py
+/windows/verify-notice-page.py
 .env
 *.env
 !examples/.env.example

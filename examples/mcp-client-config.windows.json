@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "wemust": {
+      "command": "powershell.exe",
+      "args": [
+        "-NoLogo",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\path\\to\\wemust-mcp\\windows\\start-mcp.ps1"
+      ]
+    }
+  }
+}

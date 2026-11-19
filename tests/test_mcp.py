@@ -2,6 +2,7 @@
 
 Run with:  python -m unittest discover -s tests   (or: python tests/test_mcp.py)
 """
+
 import os
 import sys
 import unittest
@@ -9,7 +10,7 @@ import unittest
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from wemust.config import Config
-from wemust.mcp_server import handle, ServerState
+from wemust.mcp_server import ServerState, handle
 
 
 def _state(env):
@@ -33,8 +34,22 @@ class TestMcpOffline(unittest.TestCase):
         st = _state({"WEMUST_USERNAME": "sample"})
         resp = handle({"jsonrpc": "2.0", "id": 2, "method": "tools/list"}, st)
         names = [t["name"] for t in resp["result"]["tools"]]
-        self.assertEqual(set(names),
-                         {"get_timetable", "get_notices", "get_messages", "get_calendar"})
+        self.assertEqual(
+            set(names),
+            {
+                "get_timetable",
+                "get_notices",
+                "get_messages",
+                "get_calendar",
+                "get_moodle_courses",
+                "get_moodle_course",
+                "get_moodle_deadlines",
+                "get_moodle_assignment",
+                "get_notice_detail",
+                "get_notice_attachment_text",
+                "get_notice_attachment_page",
+            },
+        )
         self.assertNotIn("get_grades", names)
 
     def test_tools_list_with_grades_enabled(self):

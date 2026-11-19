@@ -242,6 +242,13 @@ Then add the MCP server to your client using
 [`examples/mcp-client-config.json`](examples/mcp-client-config.json), and run the offline tests with
 `python -m unittest discover -s tests`.
 
+## DeepSeek Harness (DSH)
+
+[`integrations/dsh/`](integrations/dsh/README.md) is a ready-made DSH bundle: point the
+DSH plugin page at that folder and the server shows up as `mcp__wemust__*` tools with a
+card and an on/off switch. Fill in the two placeholders in its `cordis.patch.yml`, set
+`WEMUST_PASSWORD` in the environment, and restart DSH once. See
+[integrations/dsh/README.md](integrations/dsh/README.md) for the step-by-step.
 ## License
 
 MIT © 2026 Knighty KAKA. See [LICENSE](LICENSE).

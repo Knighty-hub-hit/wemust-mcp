@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "title": "WeMust portal",
+    "description": "Read-only access to the MUST WeMust portal and Moodle: timetable, notices with bodies and PDF attachments, messages, calendar, courses, and assignment deadlines. Grade tools stay disabled."
+  },
+  "name": "WeMust portal",
+  "description": "Read-only access to the MUST WeMust portal and Moodle: timetable, notices with bodies and PDF attachments, messages, calendar, courses, and assignment deadlines. Grade tools stay disabled."
+}

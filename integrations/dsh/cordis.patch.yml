@@ -1,0 +1,29 @@
+# DeepSeek Harness (DSH) bundle patch: registers this repository's MCP server.
+#
+# Fill in the two placeholders before enabling:
+#   cwd               absolute path of your clone of this repository
+#                     (Windows: use forward slashes or double backslashes)
+#   WEMUST_USERNAME   your WeMust login id, e.g. 1234567890@student.must.edu.mo
+#
+# The password is NEVER stored in this file. It is read from the
+# WEMUST_PASSWORD environment variable when the bundle loads:
+#   setx WEMUST_PASSWORD "your-password"    then restart DSH once
+#
+# Grades stay off on purpose: WEMUST_ENABLE_GRADES is never set here, so the
+# get_grades tool is not registered at all and grade data cannot reach the model.
+- insert:
+    - id: wemust
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: wemust
+        transport: stdio
+        command: python
+        args: ['-m', 'wemust.mcp_server']
+        cwd: 'C:/path/to/your/clone/of/wemust-mcp'
+        env:
+          WEMUST_USERNAME: 'your_student_id'
+          WEMUST_PASSWORD: !!js process.env.WEMUST_PASSWORD ?? ''
+          PYTHONIOENCODING: 'utf-8'
+          PYTHONDONTWRITEBYTECODE: '1'
+        toolCallTimeoutMs: 60000
+        failOnStartupError: true
